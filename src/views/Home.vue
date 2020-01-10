@@ -1,5 +1,10 @@
 <template>
   <div class="home">
+    <b-loading
+      :is-full-page="loader.isFullPage"
+      :active.sync="loader.isLoading"
+      :can-cancel="true"
+    ></b-loading>
     <div class="card-wrapper">
       <div class="card" v-for="post in posts" :key="post.id">
         <div class="card-content">
@@ -40,8 +45,10 @@
       <b-pagination
         :total="total"
         :page="pagination.page"
-        :current.sync="pagination.current"
+        :current.sync="currentPage"
         :per-page="pagination.perPage"
+        :icon-prev="pagination.prevIcon"
+        :icon-next="pagination.nextIcon"
         @change="paginated((page = $event))"
       >
       </b-pagination>
@@ -51,20 +58,25 @@
 
 <script>
 /*eslint-disable*/
+import { mapActions } from 'vuex';
 export default {
   name: "home",
   data() {
     return {
       pagination: {
         total: this.total,
-        current: 1,
         perPage: 10,
         rangeBefore: 3,
         rangeAfter: 3,
         page: 1,
-        // prevIcon: 'arrow-left',
-        // nextIcon: 'arrow-right',
+        prevIcon: 'arrow-left',
+        nextIcon: 'arrow-right',
         isPagination: false
+      },
+      loader: {
+        isFullPage: false,
+        isLoading: true
+
       }
     };
   },
@@ -86,24 +98,36 @@ export default {
     },
     claps() {
       return this.$store.getters["posts/getClaps"];
+    },
+    currentPage: {
+      get () {
+        return this.$store.getters["posts/getCurrentPage"];
+      },
+      set (value) {
+        this.$store.commit('posts/setCurrentPage', value);
+      }
     }
   },
   mounted() {
     this.$store.dispatch("refreshRole");
     this.$store.dispatch("posts/getTotalPages");
-    this.$store.dispatch("posts/getPosts", this.page);
+    this.$store.dispatch("posts/getPosts", this.currentPage)
+      .then( () => this.loader.isLoading = false)
   },
   methods: {
     deletePost(post) {
-      this.$store.dispatch("posts/deletePost", post.id);
-      this.$store.dispatch("posts/getPosts", post.id);
+      this.$store.dispatch("posts/deletePost", post.id)
+        .then( () => this.$store.dispatch("posts/getPosts", this.currentPage));
     },
     changePost(post) {
       this.$store.commit("posts/changingPost", post);
       this.$router.push("/changepost");
     },
     paginated(page) {
-      this.$store.dispatch("posts/getPosts", page);
+      this.$store.commit('posts/setCurrentPage', page);
+      this.loader.isLoading = true;
+      this.$store.dispatch("posts/getPosts", this.currentPage)
+        .then( () => this.loader.isLoading = false)
     },
     addLike(post) {
       let currentClap = parseInt(post.claps);
@@ -130,7 +154,6 @@ export default {
   &-wrapper {
     display: flex;
     flex-wrap: wrap;
-    justify-content: center;
     width: 100%;
   }
 

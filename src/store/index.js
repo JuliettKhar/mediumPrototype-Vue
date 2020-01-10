@@ -33,6 +33,7 @@ export default new Vuex.Store({
       localStorage.removeItem("role");
       state.role = "";
       state.isAuth = false;
+      this.currentPage = 1;
     }
   },
   actions: {

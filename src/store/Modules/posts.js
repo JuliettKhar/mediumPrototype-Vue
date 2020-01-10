@@ -9,7 +9,8 @@ const posts = {
     posts: [],
     claps: 0,
     changingPost: {},
-    total: 0
+    total: 0,
+    currentPage: 1
   },
   getters: {
     getAllPosts (state) {
@@ -23,6 +24,9 @@ const posts = {
     },
     getTotal (state) {
       return state.total;
+    },
+    getCurrentPage (state) {
+        return state.currentPage;
     }
 
   },
@@ -38,24 +42,25 @@ const posts = {
     },
     setClaps (state, payload) {
       state.claps = payload;
+    },
+    setCurrentPage (state, payload) {
+      state.currentPage = payload;
     }
   },
   actions: {
-    getPosts ({commit}, payload) {
-      axios.get(`http://localhost:3000/posts?_page=${payload}`)
-        .then( response => {
+    async getPosts ({commit}, payload) {
+      const response = await axios.get(`http://localhost:3000/posts?_page=${payload}`);
           const { data } = response;
           commit('setPosts', data);
-        })
     },
     addOnePost({ commit }, payload) {
       axios.post("http://localhost:3000/posts", payload)
-        .then ( () => {
-          router.push('/');
-        });
+        // .then ( () => {
+        //   router.push('/');
+        // });
     },
-    deletePost ({ commit }, payload) {
-      axios.delete(`http://localhost:3000/posts/${ payload }`);
+    async deletePost ({ commit }, payload) {
+     await axios.delete(`http://localhost:3000/posts/${ payload }`);
     },
     changePost ({ commit }, payload) {
       axios.patch(`http://localhost:3000/posts/${ payload.id }`, {
@@ -64,7 +69,7 @@ const posts = {
         "updatedAt": payload.updatedDate
       })
       .then ( () => {
-        router.push('/');
+        router.go(-1);
       });
     },
     getTotalPages ({ commit }) {

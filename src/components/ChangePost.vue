@@ -37,8 +37,8 @@ export default {
   data() {
     return {
       postData: {
-        title: "",
-        description: ""
+        title: null,
+        description: null
       }
     };
   },
