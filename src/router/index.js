@@ -27,7 +27,7 @@ const routes = [
     path: "/changepost",
     name: "changepost",
     component: () =>
-    import(/* webpackChunkName: "addpost" */ "../components/ChangePost.vue")
+    import(/* webpackChunkName: "сhangepost" */ "../components/ChangePost.vue")
   }
 ];
 

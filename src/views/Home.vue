@@ -60,7 +60,6 @@
 /*eslint-disable*/
 import { mapActions } from 'vuex';
 export default {
-  name: "home",
   data() {
     return {
       pagination: {
@@ -92,9 +91,7 @@ export default {
       return this.$store.getters["posts/getTotal"];
     },
     isPaginated() {
-      if (this.total > 10) {
-        return true;
-      }
+      return Boolean(this.total > 10);
     },
     claps() {
       return this.$store.getters["posts/getClaps"];
@@ -130,12 +127,9 @@ export default {
         .then( () => this.loader.isLoading = false)
     },
     addLike(post) {
-      let currentClap = parseInt(post.claps);
-      const newClaps = (currentClap += 1);
-      this.$store.dispatch("posts/addClaps", {
-        id: post.id,
-        claps: newClaps
-      });
+      // let currentClap = parseInt(post.claps);
+      // const newClaps = (currentClap += 1);
+      this.$store.dispatch("posts/addClaps", post);
     }
   }
 };

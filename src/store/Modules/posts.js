@@ -1,5 +1,4 @@
 /* eslint-disable */
-import Vue from 'vue';
 import axios from "axios";
 import router from '../../router';
 
@@ -40,9 +39,6 @@ const posts = {
     setTotal (state, payload) {
       state.total = payload;
     },
-    setClaps (state, payload) {
-      state.claps = payload;
-    },
     setCurrentPage (state, payload) {
       state.currentPage = payload;
     }
@@ -55,9 +51,9 @@ const posts = {
     },
     addOnePost({ commit }, payload) {
       axios.post("http://localhost:3000/posts", payload)
-        // .then ( () => {
-        //   router.push('/');
-        // });
+        .then ( () => {
+          router.push('/');
+        });
     },
     async deletePost ({ commit }, payload) {
      await axios.delete(`http://localhost:3000/posts/${ payload }`);
@@ -81,10 +77,12 @@ const posts = {
         })
     },
     addClaps ({ commit }, payload) {
-      console.log()
       axios.patch(`http://localhost:3000/posts/${ payload.id }`, {
-        "claps": payload.claps
+        "claps": +payload.claps + 1
       })
+        .then ( ({ data }) => {
+         payload.claps = +data.claps;
+        })
     }
   }
 }

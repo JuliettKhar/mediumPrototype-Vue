@@ -48,7 +48,6 @@
 <script>
 import { required, minLength, email } from "vuelidate/lib/validators";
 export default {
-  name: "signin",
   data() {
     return {
       signInData: {
