@@ -1,5 +1,8 @@
 <template>
   <div class="form-wrapper">
+        <div class="btn-wrapper">
+      <b-button type="is-light"  @click="goBack">Назад</b-button>
+    </div>
     <form action="" class="form">
       <div :class="{ invalid: $v.postData.title.$error }">
         <b-field class="form-row">
@@ -60,7 +63,10 @@ export default {
     fillPostForm() {
       this.postData.title = this.post.title;
       this.postData.description = this.post.description;
-    }
+    },
+    goBack () {
+      this.$router.go('-1');
+    },
   },
   computed: {
     post() {

@@ -109,7 +109,7 @@ export default {
     this.$store.dispatch("refreshRole");
     this.$store.dispatch("posts/getTotalPages");
     this.$store.dispatch("posts/getPosts", this.currentPage)
-      .then( () => this.loader.isLoading = false)
+      .then( () => this.loader.isLoading = false);
   },
   methods: {
     deletePost(post) {
@@ -127,8 +127,6 @@ export default {
         .then( () => this.loader.isLoading = false)
     },
     addLike(post) {
-      // let currentClap = parseInt(post.claps);
-      // const newClaps = (currentClap += 1);
       this.$store.dispatch("posts/addClaps", post);
     }
   }

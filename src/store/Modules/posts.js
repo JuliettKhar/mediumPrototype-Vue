@@ -51,9 +51,6 @@ const posts = {
     },
     addOnePost({ commit }, payload) {
       axios.post("http://localhost:3000/posts", payload)
-        .then ( () => {
-          router.push('/');
-        });
     },
     async deletePost ({ commit }, payload) {
      await axios.delete(`http://localhost:3000/posts/${ payload }`);

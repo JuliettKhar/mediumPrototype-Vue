@@ -1,0 +1,7 @@
+.loading {
+  &-overlay {
+    &.is-active {
+      z-index: 1;
+    }
+  }
+}
