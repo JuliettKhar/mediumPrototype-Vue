@@ -7,7 +7,7 @@ import "buefy/dist/buefy.css";
 import { library } from "@fortawesome/fontawesome-svg-core";
 import { faHandPaper, faTrash, faPen } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/vue-fontawesome";
-import Vuelidate from 'vuelidate';
+import Vuelidate from "vuelidate";
 
 library.add(faHandPaper, faPen, faTrash);
 Vue.component("font-awesome-icon", FontAwesomeIcon);

@@ -1,7 +1,7 @@
 <template>
   <div class="form-wrapper">
-        <div class="btn-wrapper">
-      <b-button type="is-light"  @click="goBack">Назад</b-button>
+    <div class="btn-wrapper">
+      <b-button type="is-light" @click="goBack">Назад</b-button>
     </div>
     <form action="" class="form">
       <div :class="{ invalid: $v.postData.title.$error }">
@@ -34,6 +34,7 @@
 </template>
 
 <script>
+import { mapActions } from "vuex";
 import { required } from "vuelidate/lib/validators";
 export default {
   data() {
@@ -52,8 +53,9 @@ export default {
     }
   },
   methods: {
+    ...mapActions(["posts/changePost"]),
     savePost() {
-      this.$store.dispatch("posts/changePost", {
+      this["posts/changePost"]({
         id: this.post.id,
         title: this.postData.title,
         description: this.postData.description,
@@ -64,9 +66,9 @@ export default {
       this.postData.title = this.post.title;
       this.postData.description = this.post.description;
     },
-    goBack () {
-      this.$router.go('-1');
-    },
+    goBack() {
+      this.$router.go("-1");
+    }
   },
   computed: {
     post() {

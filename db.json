@@ -57,35 +57,11 @@
       "id": "8o4AaWt"
     },
     {
-      "title": "Пост 4",
-      "description": "Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet consectetur adipisicing elit. Accusantium, officia. Lorem ipsum dolor sit amet consectetur, adipisicing elit. Vitae, ipsam. ",
-      "claps": 4,
-      "createdAt": "2020-01-08T11:43:54.903Z",
-      "updatedAt": "2020-01-08T11:43:54.903Z",
-      "id": "KMS9CID"
-    },
-    {
-      "title": "Пост 5",
-      "description": "Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet consectetur adipisicing elit. Accusantium, officia. Lorem ipsum dolor sit amet consectetur, adipisicing elit. Vitae, ipsam. ",
-      "claps": 1,
-      "createdAt": "2020-01-08T11:44:03.107Z",
-      "updatedAt": "2020-01-08T11:44:03.107Z",
-      "id": "99CbcIV"
-    },
-    {
-      "title": "Пост 6",
-      "description": "Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet consectetur adipisicing elit. Accusantium, officia. Lorem ipsum dolor sit amet consectetur, adipisicing elit. Vitae, ipsam. ",
-      "claps": "0",
-      "createdAt": "2020-01-08T11:44:11.887Z",
-      "updatedAt": "2020-01-08T11:44:11.887Z",
-      "id": "17oJHGt"
-    },
-    {
       "title": "Пост 5",
       "description": "Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet consectetur adipisicing elit. Accusantium, officia. Lorem ipsum dolor sit amet consectetur, adipisicing elit. Vitae, ipsam. Lorem ipsum dolor sit amet consectetur adipisicing elit. Vero error sed nemo, hic qui laudantium. Amet explicabo perferendis saepe ratione.",
       "claps": "0",
       "createdAt": "2020-01-10T18:38:34.191Z",
-      "updatedAt": "2020-01-10T18:38:34.191Z",
+      "updatedAt": "2020-01-13T20:25:40.824Z",
       "id": "1NQxDxu"
     },
     {
@@ -97,17 +73,17 @@
       "id": "413quy0"
     },
     {
-      "title": "Пост 7",
+      "title": "Пост 9",
       "description": "Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet consectetur adipisicing elit. Accusantium, officia. Lorem ipsum dolor sit amet consectetur, adipisicing elit. Vitae, ipsam. Lorem ipsum dolor sit amet consectetur adipisicing elit. Vero error sed nemo, hic qui laudantium. Amet explicabo perferendis saepe ratione.",
       "claps": "0",
       "createdAt": "2020-01-10T19:15:37.818Z",
-      "updatedAt": "2020-01-10T19:15:37.818Z",
+      "updatedAt": "2020-01-13T20:25:55.379Z",
       "id": "V52Poh3"
     },
     {
       "title": "Пост 8",
       "description": "Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet consectetur adipisicing elit. Accusantium, officia. Lorem ipsum dolor sit amet consectetur, adipisicing elit. Vitae, ipsam. Lorem ipsum dolor sit amet consectetur adipisicing elit. Vero error sed nemo, hic qui laudantium. Amet explicabo perferendis saepe ratione.",
-      "claps": "0",
+      "claps": 1,
       "createdAt": "2020-01-10T19:16:01.426Z",
       "updatedAt": "2020-01-10T19:54:14.404Z",
       "id": "R4R-d2Z"
@@ -115,10 +91,26 @@
     {
       "title": "Пост 4 ",
       "description": "Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet consectetur adipisicing elit. Accusantium, officia. Lorem ipsum dolor sit amet consectetur, adipisicing elit. Vitae, ipsam. Lorem ipsum dolor sit amet consectetur adipisicing elit. Vero error sed nemo, hic qui laudantium. Amet explicabo perferendis saepe ratione.",
-      "claps": "0",
+      "claps": 2,
       "createdAt": "2020-01-10T19:21:55.789Z",
       "updatedAt": "2020-01-10T20:08:31.058Z",
       "id": "_YRoIq6"
+    },
+    {
+      "title": "Пост 4",
+      "description": "Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet consectetur adipisicing elit. Accusantium, officia. Lorem ipsum dolor sit amet consectetur, adipisicing elit. Vitae, ipsam. Lorem ipsum dolor sit amet consectetur adipisicing elit. Vero error sed nemo, hic qui laudantium. Amet explicabo perferendis saepe ratione.",
+      "claps": 1,
+      "createdAt": "2020-01-13T20:23:42.796Z",
+      "updatedAt": "2020-01-13T20:23:42.796Z",
+      "id": "lyYE9Dj"
+    },
+    {
+      "title": "Пост 15",
+      "description": "Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet consectetur adipisicing elit. Accusantium, officia. Lorem ipsum dolor sit amet consectetur, adipisicing elit. Vitae, ipsam. Lorem ipsum dolor sit amet consectetur adipisicing elit. Vero error sed nemo, hic qui laudantium. Amet explicabo perferendis saepe ratione.",
+      "claps": "0",
+      "createdAt": "2020-01-13T20:24:36.742Z",
+      "updatedAt": "2020-01-13T20:24:36.742Z",
+      "id": "a8xDe4z"
     }
   ]
 }

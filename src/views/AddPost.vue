@@ -1,7 +1,7 @@
 <template>
   <div class="form-wrapper">
     <div class="btn-wrapper">
-      <b-button type="is-light"  @click="goBack">Назад</b-button>
+      <b-button type="is-light" @click="goBack">Назад</b-button>
     </div>
     <form action="" class="form">
       <div :class="{ invalid: $v.postData.title.$error }">
@@ -34,10 +34,9 @@
 </template>
 
 <script>
-/*eslint-disable*/
+import { mapActions } from "vuex";
 import { required } from "vuelidate/lib/validators";
 export default {
-  name: "addpost",
   data() {
     return {
       postData: {
@@ -62,31 +61,33 @@ export default {
     }
   },
   methods: {
+    ...mapActions(["posts/addOnePost"]),
     addPost() {
       if (this.postData.title && this.postData.description) {
-        this.$store.dispatch("posts/addOnePost", {
+        this["posts/addOnePost"]({
           title: this.postData.title,
           description: this.postData.description,
           claps: this.claps.toString(),
           createdAt: new Date(),
           updatedAt: new Date()
         });
+        this.$router.push("/");
       } else {
         this.$buefy.toast.open({
-          type: 'is-danger',
-          message: 'Поля необходимо заполнить'
+          type: "is-danger",
+          message: "Поля необходимо заполнить"
         });
       }
       this.clearForm();
     },
-    goBack () {
-      this.$router.push('/');
+    goBack() {
+      this.$router.push("/");
     },
-    clearForm () {
+    clearForm() {
       this.postData = {
         title: null,
         description: null
-      }
+      };
     }
   }
 };

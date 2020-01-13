@@ -57,8 +57,7 @@
 </template>
 
 <script>
-/*eslint-disable*/
-import { mapActions } from 'vuex';
+import { mapActions } from "vuex";
 export default {
   data() {
     return {
@@ -68,14 +67,13 @@ export default {
         rangeBefore: 3,
         rangeAfter: 3,
         page: 1,
-        prevIcon: 'arrow-left',
-        nextIcon: 'arrow-right',
+        prevIcon: "arrow-left",
+        nextIcon: "arrow-right",
         isPagination: false
       },
       loader: {
         isFullPage: false,
         isLoading: true
-
       }
     };
   },
@@ -97,37 +95,47 @@ export default {
       return this.$store.getters["posts/getClaps"];
     },
     currentPage: {
-      get () {
+      get() {
         return this.$store.getters["posts/getCurrentPage"];
       },
-      set (value) {
-        this.$store.commit('posts/setCurrentPage', value);
+      set(value) {
+        this.$store.commit("posts/setCurrentPage", value);
       }
     }
   },
   mounted() {
-    this.$store.dispatch("refreshRole");
-    this.$store.dispatch("posts/getTotalPages");
-    this.$store.dispatch("posts/getPosts", this.currentPage)
-      .then( () => this.loader.isLoading = false);
+    this.refreshRole();
+    this["posts/getTotalPages"]();
+    this["posts/getPosts"](this.currentPage).then(
+      () => (this.loader.isLoading = false)
+    );
   },
   methods: {
+    ...mapActions([
+      "refreshRole",
+      "posts/getTotalPages",
+      "posts/getPosts",
+      "posts/addClaps",
+      "posts/deletePost"
+    ]),
     deletePost(post) {
-      this.$store.dispatch("posts/deletePost", post.id)
-        .then( () => this.$store.dispatch("posts/getPosts", this.currentPage));
+      this["posts/deletePost"](post.id).then(() =>
+        this["posts/getPosts"](this.currentPage)
+      );
     },
     changePost(post) {
       this.$store.commit("posts/changingPost", post);
       this.$router.push("/changepost");
     },
     paginated(page) {
-      this.$store.commit('posts/setCurrentPage', page);
+      this.$store.commit("posts/setCurrentPage", page);
       this.loader.isLoading = true;
-      this.$store.dispatch("posts/getPosts", this.currentPage)
-        .then( () => this.loader.isLoading = false)
+      this["posts/getPosts"](this.currentPage).then(
+        () => (this.loader.isLoading = false)
+      );
     },
     addLike(post) {
-      this.$store.dispatch("posts/addClaps", post);
+      this["posts/addClaps"](post);
     }
   }
 };
