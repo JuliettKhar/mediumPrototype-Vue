@@ -50,13 +50,13 @@ export default new Vuex.Store({
           } else {
             Toast.open({
               message: "Неправильный логин / пароль",
-              type: 'is-danger'
+              type: "is-danger"
             });
           }
         })
-        .catch (() => {
-Toast.open("Неправильный логин / пароль");
-        })
+        .catch(() => {
+          Toast.open("Неправильный логин / пароль");
+        });
     },
 
     refreshRole({ commit }) {

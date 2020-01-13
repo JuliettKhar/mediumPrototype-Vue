@@ -15,19 +15,19 @@ const routes = [
     path: "/signin",
     name: "signin",
     component: () =>
-      import(/* webpackChunkName: "signin" */ "../components/SignIn.vue")
+      import(/* webpackChunkName: "signin" */ "../views/SignIn.vue")
   },
   {
     path: "/addpost",
     name: "addpost",
     component: () =>
-    import(/* webpackChunkName: "addpost" */ "../components/AddPost.vue")
+    import(/* webpackChunkName: "addpost" */ "../views/AddPost.vue")
   },
   {
     path: "/changepost",
     name: "changepost",
     component: () =>
-    import(/* webpackChunkName: "сhangepost" */ "../components/ChangePost.vue")
+    import(/* webpackChunkName: "сhangepost" */ "../views/ChangePost.vue")
   }
 ];
 
