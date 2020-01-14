@@ -89,7 +89,7 @@ export default {
       return this.$store.getters["posts/getTotal"];
     },
     isPaginated() {
-      return Boolean(this.total > 10);
+      return this.total > 10;
     },
     claps() {
       return this.$store.getters["posts/getClaps"];
@@ -106,9 +106,8 @@ export default {
   mounted() {
     this.refreshRole();
     this["posts/getTotalPages"]();
-    this["posts/getPosts"](this.currentPage).then(
-      () => (this.loader.isLoading = false)
-    );
+    this["posts/getPosts"](this.currentPage)
+      .then(() => (this.loader.isLoading = false));
   },
   methods: {
     ...mapActions([
@@ -119,9 +118,8 @@ export default {
       "posts/deletePost"
     ]),
     deletePost(post) {
-      this["posts/deletePost"](post.id).then(() =>
-        this["posts/getPosts"](this.currentPage)
-      );
+      this["posts/deletePost"](post.id)
+        .then(() =>  this["posts/getPosts"](this.currentPage));
     },
     changePost(post) {
       this.$store.commit("posts/changingPost", post);
@@ -130,9 +128,8 @@ export default {
     paginated(page) {
       this.$store.commit("posts/setCurrentPage", page);
       this.loader.isLoading = true;
-      this["posts/getPosts"](this.currentPage).then(
-        () => (this.loader.isLoading = false)
-      );
+      this["posts/getPosts"](this.currentPage)
+        .then(() => (this.loader.isLoading = false));
     },
     addLike(post) {
       this["posts/addClaps"](post);

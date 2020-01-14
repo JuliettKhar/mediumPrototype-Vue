@@ -6,7 +6,6 @@ const posts = {
   namespaced: true,
   state: {
     posts: [],
-    claps: 0,
     changingPost: {},
     total: 0,
     currentPage: 1
